@@ -34,17 +34,6 @@ function SignUp() {
 
 
 
-    // Function to handle Change events
-    // const handleChange = (e) => {
-    //   const {name, value} = e.target;
-    //   setDisplayName({[name]: value})
-    //   setEmail({[name]: value})
-    //   setPassword({[name]: value})
-    //   setConfirmPassword({[name]: value})
-    // }
-
-
-
 
 
 

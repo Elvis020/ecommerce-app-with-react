@@ -1,7 +1,7 @@
-import { signInWithGoogle } from "../../firebase/firebase.utils.js";
 import React, { useState } from "react";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
+import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
 import "./SignIn.scss";
 
 function SignIn() {
@@ -17,11 +17,22 @@ function SignIn() {
     setSignIn({ ...signIn, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+
+
+  // Function to handle Submission of Form
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(signIn);
-    setSignIn({ email: "", password: "" });
+    try {
+      await auth.signInWithEmailAndPassword(signIn.email, signIn.password)
+      setSignIn({ email: "", password: "" });
+    } catch (error) {
+      console.log("Pls make sure you signed up")
+    }
   };
+
+
+
+
   return (
     <div className="sign-in">
       <h2>I already have an account</h2>
